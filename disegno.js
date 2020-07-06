@@ -22,11 +22,11 @@ function disegnoPerClick() {
   var colorino = "#013ADF";
   var spazio = larghezza / linee;
 
-  for (l = 0; l < linee; l++) {
-    yi = spazio * l;
-    xf = spazio * (l + 1);
-    disegnareLinea(colorino, 0, yi, xf, 300);
-    console.log("Linea " + l);
+  for (l = 0; l <= 30; l++) {
+    disegnareLinea("purple", 0, l * 10, 300);
+    disegnareLinea("green", 300, l * 10, 300 - l * 10, 300);
+    disegnareLinea("red", 300, 300 - l * 10, 300 - l * 10, 0);
+    disegnareLinea("blue", 0, 300 - l * 10, l * 10, 0);
   }
 
   disegnareLinea(colorino, 1, 1, 1, 299);
