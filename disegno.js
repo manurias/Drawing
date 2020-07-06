@@ -19,7 +19,7 @@ function disegnoPerClick() {
   var linee = parseInt(testo.value);
   var l = 0;
   var yi, xf;
-  var colorino = "013ADF";
+  var colorino = "#013ADF";
   var spazio = larghezza / linee;
 
   for (l = 0; l < linee; l++) {
