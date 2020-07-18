@@ -1,40 +1,37 @@
-var tasti = {
-  UP: 38,
-  DOWN: 40,
-  LEFT: 37,
-  RIGHT: 39,
-};
+var testo =
+document.getElementById("testo_linee");
+var pulsante = document.getElementById("pulsantino"); 
+pulsante.addEventListener("click", disegnoPerClick);
 
-console.log(tasti);
+var d = document.getElementById("disegnino"); 
+var larghezza = d.width; 
+var canvas = d.getContext("2d"); 
 
-document.addEventListener("keyup", disegnareTastiera);
+	function disegnareLinea(colore, xinizio, yinizio, xfinale, yfinale)
+	{
+		canvas.beginPack();
+		canvas.strokeStyle = colore; 
+		canvas.moveTo(xinizio, yinizio);
+		canvas.lineTo(xfinale, yfinale);
+		canvas.stroke();
+		canvas.closePath();
+	}
 
-function disegnareTastiera(evento) {
-  // console.log("tasto premuto");
-  //console.log(evento.keyCode);
+	function disegnoPerClick()
+	{
+		 var linee = parseInt (testo.value);
+		 var l = 0; 
+		 var yi, xf; 
+		 var colorino = "#FAA";
+		 var spazio = larghezza / linee; 
 
-  /*if (evento.keyCode == tasti.UP) {
-    console.log("su");
-  }
-  */
-  switch (evento.keyCode) {
-    case tasti.UP:
-      console.log("su");
-      break;
-    case tasti:
-      DOWN: console.log("giù");
-      break;
-    default:
-      console.log("altro tasto");
-      break;
-  }
-  /*if (evento.keyCode == tasti.DOWN) {
-    console.log("giù");
-  }
-  if (evento.keyCode == tasti.LEFT) {
-    console.log("sinistra");
-  }
-  if (evento.keyCode == tasti.RIGHT) {
-    console.log("destra");
-  }*/
-}
+		 for(l = 0; l < linee; l++)
+		 {
+		 	yi = spazio * l; 
+		 	xf = spazio * (l + 1); 
+		 	disegnareLinea(colorino, 0, yi, xf, 300);
+		 	console.log("linea" + l);
+		 }
+		 disegnareLinea(colorino, 1,1,1,299);
+		 disegnareLinea(colorino, 1,200,299,299);
+	}
